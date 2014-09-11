@@ -45,10 +45,6 @@ app.controller('TegController', ['$scope', function($scope) {
       $("#comboIm").toggle("scale");
   	}
 
-  	var btnEnable = function() {
-  		$scope.btnDisabled = false;
-  	}
-
 	var restart = function() {
 		$scope.defensor = [];
 		$scope.atacante = [];
@@ -74,24 +70,17 @@ app.controller('TegController', ['$scope', function($scope) {
 
   	var comboFunc = function() {
     if(($scope.cantAt == 3) && ($scope.cantDe == 1) && ($scope.sacaAta == 1)) {
-       //document.getElementById("comboB").play();
        var med0 = new Media("/android_asset/www/sounds/combobreaker.mp3").play();
         $("#comboIm").toggle("bounce");
         setTimeout(function(){ setFalse() }, 2000);
       } else if(($scope.cantAt == 1) && ($scope.cantDe == 3) && ($scope.sacaDef == 1)) {
-        //document.getElementById("comboB").play();
         var med0 = new Media("/android_asset/www/sounds/combobreaker.mp3").play();
         $("#comboIm").toggle("bounce");
         setTimeout(function(){ setFalse() }, 2000);
       } else if(($scope.cantAt == 3) && ($scope.cantDe == 3) && ($scope.sacaAta == 3)) {
-       	//document.getElementById(sounds[random(0,2)]).play();
-       	var med = new Media("/www/sounds/perdiste.mp3").play();
        	var med1 = new Media("/android_asset/www/sounds/"+sounds[random(0,2)]+".mp3").play();
-       	var med2 = new Media("/sounds/perdiste.mp3").play();
-       	var med3 = new Media("perdiste.mp3").play();
-       	var med4 = new Media("/android/www/sounds/perdiste.mp3").play();
        	$scope.btnDisabled = true;
-        setTimeout(function(){ btnEnable() }, 2000);
+        setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 2000);
 
       }
   	}
