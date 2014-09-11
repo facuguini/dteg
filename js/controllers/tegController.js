@@ -80,7 +80,7 @@ app.controller('TegController', ['$scope', function($scope) {
       } else if(($scope.cantAt == 3) && ($scope.cantDe == 3) && ($scope.sacaAta == 3)) {
        	var med1 = new Media("/android_asset/www/sounds/"+sounds[random(0,2)]+".mp3").play();
        	$scope.btnDisabled = true;
-        setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 2000);
+        setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, med1.getDuration());
 
       }
   	}
