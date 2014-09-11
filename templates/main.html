@@ -1,0 +1,47 @@
+<img src="images/Titulo.png" class="title">
+<img id="comboIm" ng-src="{{comboImg}}">
+<div class="ntext container-fluid">
+	<div class="row">
+		<div class="col-md-5 col-xs-5">
+			<h4>Atacante</h4>
+			<div class="row">
+				<div class="small col-xs-4" ng-repeat="img in imgs">
+					<input type="image" src="{{img}}" class="dsel datac" ng-class="giroFunc(img, 'cantAt')" ng-click="unaFunc('cantAt', img)">
+				</div>
+			</div>
+			<div class="row" ng-repeat="dado in atacante | orderBy:'toString()':true track by $index">
+				<img ng-src="{{dado}}" class="dados">
+			</div>
+			<div><span id="ResAta" class="saca">Saca {{sacaAta}}</span></div>
+		</div>
+		<div class="col-md-2 col-xs-2">
+			<button type="button" class="btn btn-success btn-md btn-block" ng-disabled="btnDisabled" ng-click="roll()">ROLL</button>
+		</div>
+		<div class="col-md-5 col-xs-5 text-right">
+			<h4>Defensor</h4>
+			<div class="row pull-right">
+				<div class="small col-xs-4" ng-repeat="img in imgs | orderBy:'toString()':true">
+					<input type="image" src="{{img}}" class="dsel ddef" ng-class="giroFunc(img, 'cantDe')" ng-click="unaFunc('cantDe', img)">
+				</div>
+			</div>
+			<div class="pull-right divFix">
+				<div class="row" ng-repeat="dado in defensor | orderBy:'toString()':true track by $index">
+					<img ng-src="{{dado}}" class="dados">
+				</div>
+				<div><span id="ResDef" class="saca">Saca {{sacaDef}}</span></div>
+			</div> 
+		</div>
+	</div>
+
+ 	<div ng-hide="true">
+	  <audio id="comboB" controls>
+	    <source  src="sounds/combobreaker.mp3" type="audio/mp3">
+	  </audio>
+	  <audio id="perdiste" controls>
+	    <source  src="sounds/perdiste.mp3" type="audio/mp3">
+	  </audio>
+	  <audio id="perdiste2" controls>
+	    <source  src="sounds/perdiste2.mp3" type="audio/mp3">
+	  </audio>
+	</div>
+</div>
