@@ -1,6 +1,8 @@
 <img src="images/Titulo.png" class="title">
 <img id="comboIm" ng-src="{{comboImg}}">
-<div class="ntext container-fluid">
+<input type="image" id="settingO" src="images/setting.png" ng-click="openSetting()">
+
+<div class="ntext container-fluid" ng-hide="principal">
 	<div class="row">
 		<div class="col-md-5 col-xs-5">
 			<h4>Atacante</h4>
@@ -41,7 +43,36 @@
 	    <source  src="sounds/perdiste.mp3" type="audio/mp3">
 	  </audio>
 	  <audio id="perdiste2" controls>
-	    <source  src="sounds/perdiste2.mp3" type="audio/mp3">
+	    <source id="test"  src="sounds/perdiste2.mp3" type="audio/mp3">
 	  </audio>
 	</div>
+
+
+
+	
+
 </div>
+
+<div id="settings" ng-hide="setting">
+
+		<div class="ntext container-fluid">
+			<div class="row">
+				<div class="col-md-6 col-xs-6 text-center">
+					<div class="SettingLabel">
+					   <span>Vibrate</span>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-6">
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked ng-click="toggleThis('vibrate')">
+					    <label class="onoffswitch-label" for="myonoffswitch">
+					        <span class="onoffswitch-inner">
+					            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+					            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+					        </span>
+					    </label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

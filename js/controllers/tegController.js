@@ -10,6 +10,11 @@ app.controller('TegController', ['$scope', function($scope) {
 	$scope.btnDisabled = false;
 	$scope.comboImg = 'images/combo.jpg'
 	$scope.cBreaker = false;
+	$scope.setting = true;
+	$scope.principal = false;
+	$scope.vibrate = true;
+
+
   $("#comboIm").toggle();
 
 	for(i=1;i<7;i++) {
@@ -17,7 +22,9 @@ app.controller('TegController', ['$scope', function($scope) {
 	}
 
 	$scope.roll = function() {
-		navigator.notification.vibrate(500);
+		if ($scope.vibrate) {
+			navigator.notification.vibrate(500);
+		}
 		var sacaDef = [], sacaAta = [], numRand;
 		restart();
 		for(i=0;i<$scope.cantAt;i++) {
@@ -40,6 +47,15 @@ app.controller('TegController', ['$scope', function($scope) {
     comboFunc();
 	
 	}
+
+	$scope.openSetting = function() {
+		$scope.setting = !$scope.setting;
+		$scope.principal = !$scope.principal;
+  	}
+
+  	$scope.toggleThis = function(que) {
+  		$scope[que]  = !$scope[que]
+  	}
 
 	var setFalse = function() {
       $("#comboIm").toggle("scale");
@@ -70,7 +86,7 @@ app.controller('TegController', ['$scope', function($scope) {
 
   	var comboFunc = function() {
     if(($scope.cantAt == 3) && ($scope.cantDe == 1) && ($scope.sacaAta == 1)) {
-       var med0 = new Media("/android_asset/www/sounds/combobreaker.mp3").play();
+        var med0 = new Media("/android_asset/www/sounds/combobreaker.mp3").play();
         $("#comboIm").toggle("bounce");
         setTimeout(function(){ setFalse() }, 2000);
       } else if(($scope.cantAt == 1) && ($scope.cantDe == 3) && ($scope.sacaDef == 1)) {
@@ -80,9 +96,15 @@ app.controller('TegController', ['$scope', function($scope) {
       } else if(($scope.cantAt == 3) && ($scope.cantDe == 3) && ($scope.sacaAta == 3)) {
        	var med1 = new Media("/android_asset/www/sounds/"+sounds[random(0,2)]+".mp3").play();
        	$scope.btnDisabled = true;
-        setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, med1.getDuration());
+        //setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, med1.getDuration());
+       
+        var my_media = new Media("/android_asset/www/sounds/perdiste2.mp3", onSuccess, onError);
+        
+        setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 5);
 
       }
   	}
+
+
 
 }]);
