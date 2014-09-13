@@ -13,9 +13,8 @@ app.controller('TegController', ['$scope', function($scope) {
 	$scope.setting = true;
 	$scope.principal = false;
 	$scope.vibrate = true;
-
-
-  $("#comboIm").toggle();
+	
+	$("#comboIm").toggle();
 
 	for(i=1;i<7;i++) {
 		$scope.rdices[i] = "images/dado" + i + ".png";
@@ -43,9 +42,7 @@ app.controller('TegController', ['$scope', function($scope) {
 		for(i=0;i<Math.min($scope.cantAt,$scope.cantDe);i++) {
 			sacaAta[i] > sacaDef[i] ? $scope.sacaDef++ : $scope.sacaAta++;
 		}
-
-    comboFunc();
-	
+    	comboFunc();
 	}
 
 	$scope.openSetting = function() {
@@ -54,7 +51,7 @@ app.controller('TegController', ['$scope', function($scope) {
   	}
 
   	$scope.toggleThis = function(que) {
-  		$scope[que]  = !$scope[que]
+  		$scope[que] = !$scope[que]
   	}
 
 	var setFalse = function() {
@@ -96,15 +93,8 @@ app.controller('TegController', ['$scope', function($scope) {
       } else if(($scope.cantAt == 3) && ($scope.cantDe == 3) && ($scope.sacaAta == 3)) {
        	var med1 = new Media("/android_asset/www/sounds/"+sounds[random(0,2)]+".mp3").play();
        	$scope.btnDisabled = true;
-        //setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, med1.getDuration());
-       
         var my_media = new Media("/android_asset/www/sounds/perdiste2.mp3", onSuccess, onError);
-        
         setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 5);
-
       }
   	}
-
-
-
 }]);
