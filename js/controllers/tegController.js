@@ -12,8 +12,13 @@ app.controller('TegController', ['$scope', function($scope) {
 	$scope.cBreaker = false;
 	$scope.setting = true;
 	$scope.principal = false;
-	$scope.vibrate = true;
-	
+	$scope.vibrate = window.localStorage.getItem("vibrate");
+	alert("scope vibrate1= " + $scope.vibrate);
+	if ($scope.vibrate == null) {
+		alert("Es null asiq le ponemos true");
+		$scope.vibrate = true;
+	}
+
 	$("#comboIm").toggle();
 
 	for(i=1;i<7;i++) {
@@ -21,8 +26,10 @@ app.controller('TegController', ['$scope', function($scope) {
 	}
 
 	$scope.roll = function() {
+		alert("roll scope vibrate= " + $scope.vibrate + " " + window.localStorage.getItem("vibrate"));
 		if ($scope.vibrate) {
-			navigator.notification.vibrate(500);
+			console.log("vibr0");
+			//navigator.notification.vibrate(500);
 		}
 		var sacaDef = [], sacaAta = [], numRand;
 		restart();
@@ -51,7 +58,13 @@ app.controller('TegController', ['$scope', function($scope) {
   	}
 
   	$scope.toggleThis = function(que) {
-  		$scope[que] = !$scope[que]
+  		if ((que == "vibrate") && (!$scope[que])) {
+  			console.log("vibr");
+  			//navigator.notification.vibrate(500);
+  		}
+  		$scope[que] = !$scope[que];
+  		window.localStorage.setItem(que, $scope[que]);
+  		alert("scope vibrate cambio= " + $scope[que] + " " + window.localStorage.getItem(que));
   	}
 
 	var setFalse = function() {
@@ -93,8 +106,7 @@ app.controller('TegController', ['$scope', function($scope) {
       } else if(($scope.cantAt == 3) && ($scope.cantDe == 3) && ($scope.sacaAta == 3)) {
        	var med1 = new Media("/android_asset/www/sounds/"+sounds[random(0,2)]+".mp3").play();
        	$scope.btnDisabled = true;
-        var my_media = new Media("/android_asset/www/sounds/perdiste2.mp3", onSuccess, onError);
-        setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 5);
+        setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 4500);
       }
   	}
 }]);
