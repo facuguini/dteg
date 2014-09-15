@@ -15,8 +15,6 @@ app.controller('TegController', ['$scope', function($scope) {
 	var tempVibrate = window.localStorage.getItem("vibrate");
 	switch(tempVibrate) {
 		case "null":
-				$scope.vibrate = true;
-			break;
 		case "true":
 				$scope.vibrate = true;
 			break;
