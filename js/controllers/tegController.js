@@ -84,10 +84,6 @@ app.controller('TegController', ['$scope', function($scope) {
   		window.localStorage.setItem(que, $scope[que]);
   	}
 
-	var setFalse = function() {
-      $("#comboIm").toggle("scale");
-  	}
-
 	var restart = function() {
 		$scope.defensor = [];
 		$scope.atacante = [];
@@ -112,20 +108,18 @@ app.controller('TegController', ['$scope', function($scope) {
 	var sounds = ["perdiste", "perdiste2"];
 
   	var comboFunc = function() {
-	  	if($scope.sounds){
-		    if(($scope.cantAt == 3) && ($scope.cantDe == 1) && ($scope.sacaAta == 1)) {
-		        var med0 = new Media("/android_asset/www/sounds/combobreaker.mp3").play();
-		        $("#comboIm").toggle("bounce");
-		        setTimeout(function(){ setFalse() }, 2000);
-		    } else if(($scope.cantAt == 1) && ($scope.cantDe == 3) && ($scope.sacaDef == 1)) {
-		        var med0 = new Media("/android_asset/www/sounds/combobreaker.mp3").play();
-		        $("#comboIm").toggle("bounce");
-		    	setTimeout(function(){ setFalse() }, 2000);
-		    } else if(($scope.cantAt == 3) && ($scope.cantDe == 3) && ($scope.sacaAta == 3)) {
-		       	var med1 = new Media("/android_asset/www/sounds/"+sounds[random(0,2)]+".mp3").play();
-		       	$scope.btnDisabled = true;
-				setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 4500);
-		    }
-	  	}
+	    if(($scope.cantAt == 3) && ($scope.cantDe == 1) && ($scope.sacaAta == 1)) {
+	        var med0 = $scope.sounds ? new Media("/android_asset/www/sounds/combobreaker.mp3").play() : "";
+	        $("#comboIm").toggle("bounce");
+	        setTimeout(function(){ $("#comboIm").toggle("scale"); }, 2000);
+	    } else if(($scope.cantAt == 1) && ($scope.cantDe == 3) && ($scope.sacaDef == 1)) {
+	        var med0 = $scope.sounds ? new Media("/android_asset/www/sounds/combobreaker.mp3").play() : "";
+	        $("#comboIm").toggle("bounce");
+	    	setTimeout(function(){ $("#comboIm").toggle("scale"); }, 2000);
+	    } else if(($scope.cantAt == 3) && ($scope.cantDe == 3) && ($scope.sacaAta == 3)) {
+	       	var med1 = $scope.sounds ? new Media("/android_asset/www/sounds/"+sounds[random(0,2)]+".mp3").play() : "";
+	       	$scope.btnDisabled = $scope.sounds ? true : false;
+			setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 4500);
+	    }
   	}
 }]);
