@@ -13,11 +13,16 @@ app.controller('TegController', ['$scope', function($scope) {
 	$scope.setting = true;
 	$scope.principal = false;
 	$scope.vibrate = window.localStorage.getItem("vibrate");
-	alert("scope vibrate1= " + $scope.vibrate);
+	//alert("scope vibrate1= " + $scope.vibrate);
 	if ($scope.vibrate == null) {
-		alert("Es null asiq le ponemos true");
+		//alert("Es null asiq le ponemos true");
 		$scope.vibrate = true;
+	} 
+	if ($scope.vibrate == false) {
+		alert("hola");
+		$("#myonoffswitch").prop( "checked", false );
 	}
+			
 
 	$("#comboIm").toggle();
 
@@ -26,11 +31,11 @@ app.controller('TegController', ['$scope', function($scope) {
 	}
 
 	$scope.roll = function() {
-		alert("roll scope vibrate= " + $scope.vibrate + " " + window.localStorage.getItem("vibrate"));
-		if ($scope.vibrate) {
-			console.log("vibr0");
-			//navigator.notification.vibrate(500);
-		}
+		//alert("roll scope vibrate= " + $scope.vibrate + " " + window.localStorage.getItem("vibrate"));
+		if ($scope.vibrate == true) {
+			//alert("vibro porq es verdadero");
+			navigator.notification.vibrate(500);
+		} else { console.log("no vibro por es falso");}
 		var sacaDef = [], sacaAta = [], numRand;
 		restart();
 		for(i=0;i<$scope.cantAt;i++) {
@@ -60,11 +65,11 @@ app.controller('TegController', ['$scope', function($scope) {
   	$scope.toggleThis = function(que) {
   		if ((que == "vibrate") && (!$scope[que])) {
   			console.log("vibr");
-  			//navigator.notification.vibrate(500);
+  			navigator.notification.vibrate(500);
   		}
   		$scope[que] = !$scope[que];
   		window.localStorage.setItem(que, $scope[que]);
-  		alert("scope vibrate cambio= " + $scope[que] + " " + window.localStorage.getItem(que));
+  		//alert("scope vibrate cambio= " + $scope[que] + " " + window.localStorage.getItem(que));
   	}
 
 	var setFalse = function() {
