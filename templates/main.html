@@ -49,93 +49,91 @@
 </div>
 
 <div id="settings" ng-hide="setting">
-		<div class="ntext container-fluid">
-			<div class="row">
-				<div class="col-md-6 col-xs-6 text-center">
-					<div class="SettingLabel">
-					   <span>Vibrate</span>
-					</div>
-				</div>
-				<div class="col-md-6 col-xs-6">
-					<div class="onoffswitch">
-					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-checked="{{vibrate}}" ng-click="toggleThis('vibrate')">
-					    <label class="onoffswitch-label" for="myonoffswitch">
-					        <span class="onoffswitch-inner">
-					            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-					            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-					        </span>
-					    </label>
-					</div>
+	<div class="ntext container-fluid">
+		<div class="row">
+			<div class="col-md-6 col-xs-6 text-center">
+				<div class="SettingLabel">
+				   <span>Vibrate</span>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-6 col-xs-6 text-center">
-					<div class="SettingLabel">
-					   <span>Sounds</span>
-					</div>
-				</div>
-				<div class="col-md-6 col-xs-6">
-					<div class="onoffswitch">
-					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="youronoffswitch" ng-checked="{{sounds}}" ng-click="toggleThis('sounds')">
-					    <label class="onoffswitch-label" for="youronoffswitch">
-					        <span class="onoffswitch-inner">
-					            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-					            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-					        </span>
-					    </label>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-xs-6 text-center">
-					<div class="SettingLabel">
-					   <span>Animations</span>
-					</div>
-				</div>
-				<div class="col-md-6 col-xs-6">
-					<div class="onoffswitch">
-					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="hisonoffswitch" ng-checked="{{animations}}" ng-click="toggleThis('animations')">
-					    <label class="onoffswitch-label" for="hisonoffswitch">
-					        <span class="onoffswitch-inner">
-					            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-					            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-					        </span>
-					    </label>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-xs-6 text-center">
-					<div class="SettingLabel">
-					   <span>Users</span>
-					</div>
-				</div>
-				<div class="col-md-6 col-xs-6">
-					<div class="onoffswitch">
-					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="gonsonoffswitch" ng-checked="{{onUser}}" ng-click="toggleThis('onUser')">
-					    <label class="onoffswitch-label" for="gonsonoffswitch">
-					        <span class="onoffswitch-inner">
-					            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-					            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-					        </span>
-					    </label>
-					</div>
-				</div>
-			</div>
-			<div class="row" ng-show="{{onUser}}">
-				<div class="col-md-6 col-xs-6 text-center">
-					<div class="SettingLabel">
-					   <input type="text" ng-value="uName" id="addUser">
-					</div>
-				</div>
-				<div class="col-md-6 col-xs-6">
-					<div>
-					    <input type="button" ng-click="addUser()" value="add">
-					</div>
-				</div>
-				<div class="row" ng-repeat="user in users">
-					{{user}}
+			<div class="col-md-6 col-xs-6">
+				<div class="onoffswitch">
+				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-checked="{{vibrate}}" ng-click="toggleThis('vibrate')">
+				    <label class="onoffswitch-label" for="myonoffswitch">
+				        <span class="onoffswitch-inner">
+				            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+				            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+				        </span>
+				    </label>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-6 col-xs-6 text-center">
+				<div class="SettingLabel">
+				   <span>Sounds</span>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-6">
+				<div class="onoffswitch">
+				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="youronoffswitch" ng-checked="{{sounds}}" ng-click="toggleThis('sounds')">
+				    <label class="onoffswitch-label" for="youronoffswitch">
+				        <span class="onoffswitch-inner">
+				            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+				            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+				        </span>
+				    </label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-xs-6 text-center">
+				<div class="SettingLabel">
+				   <span>Animations</span>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-6">
+				<div class="onoffswitch">
+				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="hisonoffswitch" ng-checked="{{animations}}" ng-click="toggleThis('animations')">
+				    <label class="onoffswitch-label" for="hisonoffswitch">
+				        <span class="onoffswitch-inner">
+				            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+				            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+				        </span>
+				    </label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-xs-6 text-center">
+				<div class="SettingLabel">
+				   <span>Users</span>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-6">
+				<div class="onoffswitch">
+				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="gonsonoffswitch" ng-checked="{{onUser}}" ng-click="toggleThis('onUser')">
+				    <label class="onoffswitch-label" for="gonsonoffswitch">
+				        <span class="onoffswitch-inner">
+				            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+				            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+				        </span>
+				    </label>
+				</div>
+			</div>
+		</div>
+		<div class="row" ng-show="{{offUser}}">
+			<div class="col-md-6 col-xs-6 text-center">
+				<div>
+				   <input type="text" ng-model="uName" class="iuser">
+				</div>
+			</div>
+			<div>
+				<span><input type="button" ng-click="addUser()" value="add" class="btn-success"></span>
+			</div>
+			<div ng-repeat="user in users">
+				<span class="users">{{user}}</span>
+			</div>
+		</div>
 	</div>
+</div>

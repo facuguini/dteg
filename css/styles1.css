@@ -208,4 +208,10 @@ to { -o-transform: rotate(360deg) scale(2) skew(1deg) translate(0px); }
     margin-left: 0;
 }
 
+.iuser {
+	font-color: #000000;
+}
+.users {
+	margin-left: 25%;
+}
 

@@ -47,17 +47,15 @@ app.controller('TegController', ['$scope', function($scope) {
 		case "null":
 		case "true":
 				$scope.onUser = true;
+				$scope.offUser = true;
 			break;
 		case "false":
 				$scope.onUser = false;
+				$scope.offUser = false;
 			break;
 	}
-	for (i = 0; i < 6; i++) {
-		if(window.localStorage.getItem("user"+i)!="null"){
-			$scope.users[i]=window.localStorage.getItem("user"+i);
-		}
-	}
-	$scope.uName = "name"
+	$scope.users = [];
+	$scope.uName = "";
 
 	$("#comboIm").toggle();
 
@@ -98,7 +96,12 @@ app.controller('TegController', ['$scope', function($scope) {
   	$scope.toggleThis = function(que) {
   		if ((que == "vibrate") && (!$scope[que])) {
   			navigator.notification.vibrate(500);
-  		}  		
+  		}
+  		if((que == "users") && ($scope[que])) {
+  			$scope.$apply(function(){$scope.offUser = false})
+  		} else if ((que == "users") && (!$scope[que])) {
+  			$scope.$apply(function(){$scope.offUser = true})
+  		}
   		$scope[que] = !$scope[que];
   		window.localStorage.setItem(que, $scope[que]);
   	}
@@ -148,8 +151,6 @@ app.controller('TegController', ['$scope', function($scope) {
 
   	$scope.addUser = function() {
   		$scope.users[$scope.users.length]=$scope.uName;
-  		for (i = 0; i < $scope.users.length; i++) {
-  			window.localStorage.setItem("user"+i, $scope.users[i]);
-  		}
+  		$scope.uName="";
   	}
 }]);
