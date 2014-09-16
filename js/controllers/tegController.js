@@ -42,16 +42,22 @@ app.controller('TegController', ['$scope', function($scope) {
 				$scope.animations = false;
 			break;
 	}
-	var tempUsers = window.localStorage.getItem("Users");
-	switch(tempUsers) {
+	var tempOnUser = window.localStorage.getItem("onUser");
+	switch(tempOnUser) {
 		case "null":
 		case "true":
-				$scope.users = true;
+				$scope.onUser = true;
 			break;
 		case "false":
-				$scope.users = false;
+				$scope.onUser = false;
 			break;
 	}
+	for (i = 0; i < 6; i++) {
+		if(window.localStorage.getItem("user"+i)!="null"){
+			$scope.users[i]=window.localStorage.getItem("user"+i);
+		}
+	}
+	$scope.uName = "name"
 
 	$("#comboIm").toggle();
 
@@ -138,5 +144,12 @@ app.controller('TegController', ['$scope', function($scope) {
 	       	$scope.btnDisabled = $scope.sounds ? true : false;
 			setTimeout(function(){$scope.$apply(function(){$scope.btnDisabled = false})}, 4500);
 	    }
+  	}
+
+  	$scope.addUser = function() {
+  		$scope.users[$scope.users.length]=$scope.uName;
+  		for (i = 0; i < $scope.users.length; i++) {
+  			window.localStorage.setItem("user"+i, $scope.users[i]);
+  		}
   	}
 }]);
