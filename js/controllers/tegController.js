@@ -153,4 +153,15 @@ app.controller('TegController', ['$scope', function($scope) {
   		$scope.users[$scope.users.length]=$scope.uName;
   		$scope.uName="";
   	}
+
+
+
+document.addEventListener("backbutton", onBackKeyDown, false);
+
+function onBackKeyDown() {
+    alert("Where are you going?");
+}
+
+
+
 }]);

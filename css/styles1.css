@@ -209,7 +209,7 @@ to { -o-transform: rotate(360deg) scale(2) skew(1deg) translate(0px); }
 }
 
 .iuser {
-	font-color: #000000;
+	color: #000000 !important;
 }
 .users {
 	margin-left: 25%;
