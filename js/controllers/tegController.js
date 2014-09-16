@@ -15,8 +15,6 @@ app.controller('TegController', ['$scope', function($scope) {
 	var tempVibrate = window.localStorage.getItem("vibrate");
 	switch(tempVibrate) {
 		case "null":
-				$scope.vibrate = true;
-			break;
 		case "true":
 				$scope.vibrate = true;
 			break;
@@ -24,17 +22,24 @@ app.controller('TegController', ['$scope', function($scope) {
 				$scope.vibrate = false;
 			break;
 	}	
-
 	var tempSounds = window.localStorage.getItem("sounds");
 	switch(tempSounds) {
 		case "null":
-				$scope.sounds = true;
-			break;
 		case "true":
 				$scope.sounds = true;
 			break;
 		case "false":
 				$scope.sounds = false;
+			break;
+	}
+	var tempAnimations = window.localStorage.getItem("animations");
+	switch(tempAnimations) {
+		case "null":
+		case "true":
+				$scope.animations = true;
+			break;
+		case "false":
+				$scope.animations = false;
 			break;
 	}
 
@@ -76,11 +81,9 @@ app.controller('TegController', ['$scope', function($scope) {
 
   	$scope.toggleThis = function(que) {
   		if ((que == "vibrate") && (!$scope[que])) {
-  			console.log("vibr");
   			navigator.notification.vibrate(500);
   		}  		
   		$scope[que] = !$scope[que];
-  		window.localStorage.removeItem(que);
   		window.localStorage.setItem(que, $scope[que]);
   	}
 
@@ -110,12 +113,16 @@ app.controller('TegController', ['$scope', function($scope) {
   	var comboFunc = function() {
 	    if(($scope.cantAt == 3) && ($scope.cantDe == 1) && ($scope.sacaAta == 1)) {
 	        var med0 = $scope.sounds ? new Media("/android_asset/www/sounds/combobreaker.mp3").play() : "";
-	        $("#comboIm").toggle("bounce");
-	        setTimeout(function(){ $("#comboIm").toggle("scale"); }, 2000);
+	        if($scope.animations){
+		        $("#comboIm").toggle("bounce");
+		        setTimeout(function(){ $("#comboIm").toggle("scale"); }, 2000);
+		    }
 	    } else if(($scope.cantAt == 1) && ($scope.cantDe == 3) && ($scope.sacaDef == 1)) {
 	        var med0 = $scope.sounds ? new Media("/android_asset/www/sounds/combobreaker.mp3").play() : "";
-	        $("#comboIm").toggle("bounce");
-	    	setTimeout(function(){ $("#comboIm").toggle("scale"); }, 2000);
+	        if($scope.animations){
+		        $("#comboIm").toggle("bounce");
+		    	setTimeout(function(){ $("#comboIm").toggle("scale"); }, 2000);
+			}	    
 	    } else if(($scope.cantAt == 3) && ($scope.cantDe == 3) && ($scope.sacaAta == 3)) {
 	       	var med1 = $scope.sounds ? new Media("/android_asset/www/sounds/"+sounds[random(0,2)]+".mp3").play() : "";
 	       	$scope.btnDisabled = $scope.sounds ? true : false;
