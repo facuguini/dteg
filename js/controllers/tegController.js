@@ -65,7 +65,6 @@ app.controller('TegController', ['$scope', function($scope) {
   			navigator.notification.vibrate(500);
   		}  		
   		$scope[que] = !$scope[que];
-  		window.localStorage.removeItem(que);
   		window.localStorage.setItem(que, $scope[que]);
   	}
 
