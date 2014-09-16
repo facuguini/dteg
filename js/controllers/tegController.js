@@ -42,6 +42,16 @@ app.controller('TegController', ['$scope', function($scope) {
 				$scope.animations = false;
 			break;
 	}
+	var tempUsers = window.localStorage.getItem("Users");
+	switch(tempUsers) {
+		case "null":
+		case "true":
+				$scope.users = true;
+			break;
+		case "false":
+				$scope.users = false;
+			break;
+	}
 
 	$("#comboIm").toggle();
 
