@@ -208,8 +208,6 @@ to { -o-transform: rotate(360deg) scale(2) skew(1deg) translate(0px); }
     margin-left: 0;
 }
 
-
-
 .iuser {
 	color: #000000 !important;
 	display: inline-block !important;
@@ -231,4 +229,8 @@ to { -o-transform: rotate(360deg) scale(2) skew(1deg) translate(0px); }
 
 select {
 	color: #000000 !important;;
+}
+
+.gadd {
+	color: #00FF00;
 }
