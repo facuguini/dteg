@@ -1,3 +1,4 @@
+
 app.controller('TegController', ['$scope', function($scope) {
 	$scope.cantDe = 1;
 	$scope.cantAt = 1;
@@ -143,18 +144,25 @@ app.controller('TegController', ['$scope', function($scope) {
   	}
 
   	$scope.addUser = function() {
-  		$scope.users[$scope.users.length]=$scope.uName;
-  		$scope.uName="";
+  		if ($scope.uName != "") {
+	  		$scope.users[$scope.users.length]=$scope.uName;
+	  		$scope.uName="";
+  		} else {
+  			$(".iuser").effect("pulsate");
+  		}
   	}
 
+  	$scope.removeUser = function(index) {
+  		$scope.users.splice(index, 1);
+  	}
 
-
-document.addEventListener("backbutton", onBackKeyDown, false);
-
-function onBackKeyDown() {
-    alert("Where are you going?");
-}
+	document.addEventListener("backbutton", onBackKeyDown, false);
+	function onBackKeyDown() {
+	    alert("Where are you going?");
+	}
 
 
 
 }]);
+
+

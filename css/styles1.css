@@ -208,10 +208,29 @@ to { -o-transform: rotate(360deg) scale(2) skew(1deg) translate(0px); }
     margin-left: 0;
 }
 
+
+
 .iuser {
 	color: #000000 !important;
+	display: inline-block !important;
+	width: 25% !important;
 }
+
 .users {
 	margin-left: 25%;
+}
+.users span {
+	cursor: pointer;
+	color: #FF0000
+}
+
+
+#addUser {
+	width: 15.5%;
+	margin-left: 15px;
+}
+
+select {
+	color: #000000 !important;;
 }
 
