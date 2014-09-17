@@ -103,7 +103,6 @@ app.controller('TegController', ['$scope', function($scope) {
   		}
   		$scope[que] = !$scope[que];
   		window.localStorage.setItem(que, $scope[que]);
-  		debugger;
   	}
 
 	var restart = function() {
