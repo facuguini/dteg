@@ -139,7 +139,7 @@
 				</div>
 			</div>
 			<div>
-				<span><input id="addUser" type="button" ng-click="addUser()" value="add" class="btn btn-success"></span>
+				<span class="glyphicon glyphicon-plus" ng-click="addUser()"></span>
 			</div>
 			<div ng-repeat="user in users track by $index">
 				<span class="users" title="Remove me" >{{user}} <span class="glyphicon glyphicon-remove" ng-click="removeUser($index)"></span></span>

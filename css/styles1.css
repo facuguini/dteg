@@ -230,3 +230,10 @@ to { -o-transform: rotate(360deg) scale(2) skew(1deg) translate(0px); }
 select {
 	color: #000000 !important;;
 }
+
+.gadd {
+	color: #00ff00 !important;
+}
+.gremove {
+	color: #ff0000 !important;
+}
