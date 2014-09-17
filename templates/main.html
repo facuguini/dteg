@@ -114,7 +114,7 @@
 			</div>
 			<div class="col-md-6 col-xs-6">
 				<div class="onoffswitch">
-				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="gonsonoffswitch" ng-checked="{{onUser}}" ng-click="toggleThis('onUser')">
+				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="gonsonoffswitch" ng-checked="onUser" ng-click="toggleThis('onUser')">
 				    <label class="onoffswitch-label" for="gonsonoffswitch">
 				        <span class="onoffswitch-inner">
 				            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
@@ -124,7 +124,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" ng-show="{{offUser}}">
+		<div class="row" ng-show="offUser">
 			<div class="col-md-6 col-xs-6 text-center">
 				<div>
 				   <input type="text" ng-model="uName" class="iuser">

@@ -97,13 +97,13 @@ app.controller('TegController', ['$scope', function($scope) {
   		if ((que == "vibrate") && (!$scope[que])) {
   			navigator.notification.vibrate(500);
   		}
-  		if((que == "users") && ($scope[que])) {
-  			$scope.$apply(function(){$scope.offUser = false})
-  		} else if ((que == "users") && (!$scope[que])) {
-  			$scope.$apply(function(){$scope.offUser = true})
+  		if(que == "onUser" || que == "offUser") {
+  			$scope.offUser = !$scope.offUser;
+  			$scope.onUser = !$scope.onUser;
   		}
   		$scope[que] = !$scope[que];
   		window.localStorage.setItem(que, $scope[que]);
+  		debugger;
   	}
 
 	var restart = function() {
