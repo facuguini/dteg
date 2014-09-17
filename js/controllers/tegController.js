@@ -143,8 +143,12 @@ app.controller('TegController', ['$scope', function($scope) {
   	}
 
   	$scope.addUser = function() {
-  		$scope.users[$scope.users.length]=$scope.uName;
-  		$scope.uName="";
+  		if ($scope.uName != "") {
+	  		$scope.users[$scope.users.length]=$scope.uName;
+	  		$scope.uName="";
+  		} else {
+  			$(".iuser").effect("pulsate");
+  		}
   	}
 
   	$scope.removeUser = function(index) {
