@@ -147,7 +147,7 @@ app.controller('TegController', ['$scope', function($scope) {
 	  		$scope.users[$scope.users.length]=$scope.uName;
 	  		$scope.uName="";
   		} else {
-  			$(".iuser").effect("pulsate");
+  			$(".iuser").effect("shake");
   		}
   	}
 
