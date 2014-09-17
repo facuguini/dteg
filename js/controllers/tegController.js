@@ -147,13 +147,14 @@ app.controller('TegController', ['$scope', function($scope) {
   		$scope.uName="";
   	}
 
+  	$scope.removeUser = function(index) {
+  		$scope.users.splice(index, 1);
+  	}
 
-
-document.addEventListener("backbutton", onBackKeyDown, false);
-
-function onBackKeyDown() {
-    alert("Where are you going?");
-}
+	document.addEventListener("backbutton", onBackKeyDown, false);
+	function onBackKeyDown() {
+	    alert("Where are you going?");
+	}
 
 
 

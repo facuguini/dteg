@@ -7,7 +7,7 @@
 		<div class="col-md-5 col-xs-5">
 			<h4>Atacante</h4>
 			<select ng-show="onUser">
-				<option ng-repeat="user in users" value="user">{{user}}</option>
+				<option ng-repeat="user in users track by $index" value="user">{{user}}</option>
 			</select>
 			<div class="row">
 				<div class="small col-xs-4" ng-repeat="img in imgs">
@@ -25,7 +25,7 @@
 		<div class="col-md-5 col-xs-5 text-right">
 			<h4>Defensor</h4>
 			<select ng-show="onUser">
-				<option ng-repeat="user in users" value="user">{{user}}</option>
+				<option ng-repeat="user in users track by $index" value="user">{{user}}</option>
 			</select>
 			<div class="row pull-right">
 				<div class="small col-xs-4" ng-repeat="img in imgs | orderBy:'toString()':true">
@@ -131,14 +131,14 @@
 		<div class="row" ng-show="onUser">
 			<div class="col-md-6 col-xs-6 text-center">
 				<div>
-				   <input type="text" ng-model="uName" class="iuser">
+				   <input type="text" ng-model="uName" class="iuser form-control">
 				</div>
 			</div>
 			<div>
 				<span><input type="button" ng-click="addUser()" value="add" class="btn-success"></span>
 			</div>
-			<div ng-repeat="user in users">
-				<span class="users">{{user}}</span>
+			<div ng-repeat="user in users track by $index">
+				<span class="users" ng-click="removeUser($index)">{{user}}</span>
 			</div>
 		</div>
 	</div>
