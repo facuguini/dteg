@@ -216,6 +216,8 @@ to { -o-transform: rotate(360deg) scale(2) skew(1deg) translate(0px); }
 
 .users {
 	margin-left: 25%;
+}
+.users span {
 	cursor: pointer;
 }
 

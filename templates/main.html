@@ -135,14 +135,14 @@
 		<div class="row" ng-show="onUser">
 			<div class="col-md-6 col-xs-6 text-center">
 				<div>
-				   <input type="text" ng-model="uName" class="iuser form-control" required>
+				   <input type="text" ng-model="uName" class="iuser form-control" ng-keyup="$event.keyCode == 13 ? addUser() : null"  required>
 				</div>
 			</div>
 			<div>
 				<span><input id="addUser" type="button" ng-click="addUser()" value="add" class="btn btn-success"></span>
 			</div>
 			<div ng-repeat="user in users track by $index">
-				<span class="users" title="Remove me" ng-click="removeUser($index)">{{user}} <span class="glyphicon glyphicon-remove"></span></span>
+				<span class="users" title="Remove me" >{{user}} <span class="glyphicon glyphicon-remove" ng-click="removeUser($index)"></span></span>
 			</div>
 		</div>
 	</div>
