@@ -47,11 +47,9 @@ app.controller('TegController', ['$scope', function($scope) {
 		case "null":
 		case "true":
 				$scope.onUser = true;
-				$scope.offUser = true;
 			break;
 		case "false":
 				$scope.onUser = false;
-				$scope.offUser = false;
 			break;
 	}
 	$scope.users = [];
@@ -96,10 +94,6 @@ app.controller('TegController', ['$scope', function($scope) {
   	$scope.toggleThis = function(que) {
   		if ((que == "vibrate") && (!$scope[que])) {
   			navigator.notification.vibrate(500);
-  		}
-  		if(que == "onUser" || que == "offUser") {
-  			$scope.offUser = !$scope.offUser;
-  			$scope.onUser = !$scope.onUser;
   		}
   		$scope[que] = !$scope[que];
   		window.localStorage.setItem(que, $scope[que]);
