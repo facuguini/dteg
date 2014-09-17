@@ -1,3 +1,4 @@
+
 app.controller('TegController', ['$scope', function($scope) {
 	$scope.cantDe = 1;
 	$scope.cantAt = 1;
@@ -143,13 +144,18 @@ app.controller('TegController', ['$scope', function($scope) {
   	}
 
   	$scope.addUser = function() {
-  		if ($scope.uName != "") {
+  		if (!isNullOrWhiteSpace($scope.uName)) {
 	  		$scope.users[$scope.users.length]=$scope.uName;
 	  		$scope.uName="";
   		} else {
-  			$(".iuser").effect("pulsate");
+  			$(".iuser").effect("pulsate").focus();
+
   		}
   	}
+
+  	function isNullOrWhiteSpace(str){
+    	return str === null || str.match(/^ *$/) !== null;
+	}
 
   	$scope.removeUser = function(index) {
   		$scope.users.splice(index, 1);
@@ -159,7 +165,6 @@ app.controller('TegController', ['$scope', function($scope) {
 	function onBackKeyDown() {
 	    alert("Where are you going?");
 	}
-
-
-
 }]);
+
+
