@@ -6,6 +6,7 @@
 	<div class="row">
 		<div class="col-md-5 col-xs-5">
 			<h4>Atacante</h4>
+			<select ng-options="user in users"></select>
 			<div class="row">
 				<div class="small col-xs-4" ng-repeat="img in imgs">
 					<input type="image" src="{{img}}" class="dsel datac" ng-class="giroFunc(img, 'cantAt')" ng-click="unaFunc('cantAt', img)">
@@ -21,6 +22,7 @@
 		</div>
 		<div class="col-md-5 col-xs-5 text-right">
 			<h4>Defensor</h4>
+			<select ng-options="user in users"></select>
 			<div class="row pull-right">
 				<div class="small col-xs-4" ng-repeat="img in imgs | orderBy:'toString()':true">
 					<input type="image" src="{{img}}" class="dsel ddef" ng-class="giroFunc(img, 'cantDe')" ng-click="unaFunc('cantDe', img)">
