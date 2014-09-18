@@ -68,13 +68,10 @@
                         </div>
                         <div class="col-md-6 col-xs-6">
                                 <div class="onoffswitch">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-checked="vibrate" ng-click="toggleThis('vibrate')">
-                                    <label class="onoffswitch-label" for="myonoffswitch">
-                                        <span class="onoffswitch-inner">
-                                            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-                                            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-                                        </span>
-                                    </label>
+                                    <label class="topcoat-switch">
+                                        <input type="checkbox" class="topcoat-switch__input" ng-checked="vibrate" ng-click="toggleThis('vibrate')">
+                                        <div class="topcoat-switch__toggle"></div>
+                                     </label>                            
                                 </div>
                         </div>
                 </div>
@@ -85,15 +82,10 @@
                                 </div>
                         </div>
                         <div class="col-md-6 col-xs-6">
-                                <div class="onoffswitch">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="youronoffswitch" ng-checked="sounds" ng-click="toggleThis('sounds')">
-                                    <label class="onoffswitch-label" for="youronoffswitch">
-                                        <span class="onoffswitch-inner">
-                                            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-                                            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-                                        </span>
-                                    </label>
-                                </div>
+                            <label class="topcoat-switch">
+                                <input type="checkbox" class="topcoat-switch__input" ng-checked="sounds" ng-click="toggleThis('sounds')">
+                                <div class="topcoat-switch__toggle"></div>
+                            </label>
                         </div>
                 </div>
                 <div class="row">
@@ -103,15 +95,10 @@
                                 </div>
                         </div>
                         <div class="col-md-6 col-xs-6">
-                                <div class="onoffswitch">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="hisonoffswitch" ng-checked="animations" ng-click="toggleThis('animations')">
-                                    <label class="onoffswitch-label" for="hisonoffswitch">
-                                        <span class="onoffswitch-inner">
-                                            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-                                            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-                                        </span>
-                                    </label>
-                                </div>
+                            <label class="topcoat-switch">
+                                <input type="checkbox" class="topcoat-switch__input" ng-checked="animations" ng-click="toggleThis('animations')">
+                                    <div class="topcoat-switch__toggle"></div>
+                            </label>
                         </div>
                 </div>
                 <div class="row">
@@ -121,22 +108,17 @@
                                 </div>
                         </div>
                         <div class="col-md-6 col-xs-6">
-                                <div class="onoffswitch">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="gonsonoffswitch" ng-checked="onUser" ng-click="toggleThis('onUser')">
-                                    <label class="onoffswitch-label" for="gonsonoffswitch">
-                                        <span class="onoffswitch-inner">
-                                            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-                                            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-                                        </span>
-                                    </label>
-                                </div>
+                            <label class="topcoat-switch">
+                                <input type="checkbox" class="topcoat-switch__input" ng-checked="onUser" ng-click="toggleThis('onUser')">
+                                    <div class="topcoat-switch__toggle"></div>
+                            </label>
                         </div>
                 </div>
                 <div class="row" ng-show="onUser">
                         <div class="col-md-6 col-xs-6 text-center">
-                                <div>
-                                   <input type="text" ng-model="uName" class="iuser form-control" ng-keyup="$event.keyCode == 13 ? addUser() : null"  required>
-                                </div>
+                            <div>
+                               <input type="text" ng-model="uName" class="iuser form-control" ng-keyup="$event.keyCode == 13 ? addUser() : null"  required>
+                            </div>
                         </div>
                         <div class="col-md-6 col-xs-6">
                                 <span class="glyphicon glyphicon-plus gadd" ng-click="addUser()"></span>
