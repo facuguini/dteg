@@ -1,3 +1,4 @@
+
 app.controller('TegController', ['$scope', function($scope) {
 	$scope.cantDe = 1;
 	$scope.cantAt = 1;
@@ -52,7 +53,11 @@ app.controller('TegController', ['$scope', function($scope) {
 				$scope.onUser = false;
 			break;
 	}
-	$scope.users = [];
+	$scope.users = []
+	var tempUser = window.localStorage.getItem("users")
+	if(!isNullOrWhiteSpace(tempUser)) {
+	 	$scope.users = JSON.parse(window.localStorage.getItem("users"));
+	}
 	$scope.uName = "";
 
 	$("#comboIm").toggle();
@@ -143,23 +148,31 @@ app.controller('TegController', ['$scope', function($scope) {
   	}
 
   	$scope.addUser = function() {
-  		if ($scope.uName != "") {
+  		if (!isNullOrWhiteSpace($scope.uName)) {
 	  		$scope.users[$scope.users.length]=$scope.uName;
 	  		$scope.uName="";
+	  		var jscope = JSON.stringify($scope.users);
+  			window.localStorage.setItem("users", jscope);
   		} else {
-  			$(".iuser").effect("pulsate");
+  			$(".iuser").effect("pulsate").focus();
+
   		}
   	}
 
+  	function isNullOrWhiteSpace(str){
+    	return str === null || str.match(/^ *$/) !== null;
+	}
+
   	$scope.removeUser = function(index) {
   		$scope.users.splice(index, 1);
+  		var jscope = JSON.stringify($scope.users);
+  		window.localStorage.setItem("users", jscope);
   	}
 
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	function onBackKeyDown() {
 	    alert("Where are you going?");
 	}
-
-
-
 }]);
+
+

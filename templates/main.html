@@ -3,147 +3,147 @@
 <input type="image" id="settingO" src="images/setting.png" ng-click="openSetting()">
 
 <div class="ntext container-fluid" ng-hide="principal">
-	<div class="row">
-		<div class="col-md-5 col-xs-5">
-			<h4>Atacante</h4>
-			<select ng-show="onUser">
-				<option ng-repeat="user in users track by $index" value="user">{{user}}</option>
-			</select>
-			<br>
-			<br>
-			<div class="row">
-				<div class="small col-xs-4" ng-repeat="img in imgs">
-					<input type="image" src="{{img}}" class="dsel datac" ng-class="giroFunc(img, 'cantAt')" ng-click="unaFunc('cantAt', img)">
-				</div>
-			</div>
-			<div class="row" ng-repeat="dado in atacante | orderBy:'toString()':true track by $index">
-				<img ng-src="{{dado}}" class="dados">
-			</div>
-			<div><span id="ResAta" class="saca">Saca {{sacaAta}}</span></div>
-		</div>
-		<div class="col-md-2 col-xs-2">
-			<button id="enter" type="button" class="btn btn-success btn-md btn-block" ng-disabled="btnDisabled" ng-click="roll()">ROLL</button>
-		</div>
-		<div class="col-md-5 col-xs-5 text-right">
-			<h4>Defensor</h4>
-			<select ng-show="onUser">
-				<option ng-repeat="user in users track by $index" value="user">{{user}}</option>
-			</select>
-			<br>
-			<br>
-			<div class="row pull-right">
-				<div class="small col-xs-4" ng-repeat="img in imgs | orderBy:'toString()':true">
-					<input type="image" src="{{img}}" class="dsel ddef" ng-class="giroFunc(img, 'cantDe')" ng-click="unaFunc('cantDe', img)">
-				</div>
-			</div>
-			<div class="pull-right divFix">
-				<div class="row" ng-repeat="dado in defensor | orderBy:'toString()':true track by $index">
-					<img ng-src="{{dado}}" class="dados">
-				</div>
-				<div><span id="ResDef" class="saca">Saca {{sacaDef}}</span></div>
-			</div> 
-		</div>
-	</div>
+        <div class="row">
+                <div class="col-md-5 col-xs-5">
+                        <h4>Atacante</h4>
+                        <select ng-show="onUser">
+                                <option ng-repeat="user in users track by $index" value="user">{{user}}</option>
+                        </select>
+                        <br>
+                        <br>
+                        <div class="row">
+                                <div class="small col-xs-4" ng-repeat="img in imgs">
+                                        <input type="image" src="{{img}}" class="dsel datac" ng-class="giroFunc(img, 'cantAt')" ng-click="unaFunc('cantAt', img)">
+                                </div>
+                        </div>
+                        <div class="row" ng-repeat="dado in atacante | orderBy:'toString()':true track by $index">
+                                <img ng-src="{{dado}}" class="dados">
+                        </div>
+                        <div><span id="ResAta" class="saca">Saca {{sacaAta}}</span></div>
+                </div>
+                <div class="col-md-2 col-xs-2">
+                        <button id="enter" type="button" class="btn btn-success btn-md btn-block" ng-disabled="btnDisabled" ng-click="roll()">ROLL</button>
+                </div>
+                <div class="col-md-5 col-xs-5 text-right">
+                        <h4>Defensor</h4>
+                        <select ng-show="onUser">
+                                <option ng-repeat="user in users track by $index" value="user">{{user}}</option>
+                        </select>
+                        <br>
+                        <br>
+                        <div class="row pull-right">
+                                <div class="small col-xs-4" ng-repeat="img in imgs | orderBy:'toString()':true">
+                                        <input type="image" src="{{img}}" class="dsel ddef" ng-class="giroFunc(img, 'cantDe')" ng-click="unaFunc('cantDe', img)">
+                                </div>
+                        </div>
+                        <div class="pull-right divFix">
+                                <div class="row" ng-repeat="dado in defensor | orderBy:'toString()':true track by $index">
+                                        <img ng-src="{{dado}}" class="dados">
+                                </div>
+                                <div><span id="ResDef" class="saca">Saca {{sacaDef}}</span></div>
+                        </div> 
+                </div>
+        </div>
 
- 	<div ng-hide="true">
-	  <audio id="comboB" controls>
-	    <source  src="sounds/combobreaker.mp3" type="audio/mp3">
-	  </audio>
-	  <audio id="perdiste" controls>
-	    <source  src="sounds/perdiste.mp3" type="audio/mp3">
-	  </audio>
-	  <audio id="perdiste2" controls>
-	    <source id="test"  src="sounds/perdiste2.mp3" type="audio/mp3">
-	  </audio>
-	</div>
+        <div ng-hide="true">
+          <audio id="comboB" controls>
+            <source  src="sounds/combobreaker.mp3" type="audio/mp3">
+          </audio>
+          <audio id="perdiste" controls>
+            <source  src="sounds/perdiste.mp3" type="audio/mp3">
+          </audio>
+          <audio id="perdiste2" controls>
+            <source id="test"  src="sounds/perdiste2.mp3" type="audio/mp3">
+          </audio>
+        </div>
 </div>
 
 <div id="settings" ng-hide="setting">
-	<div class="ntext container-fluid">
-		<div class="row">
-			<div class="col-md-6 col-xs-6 text-center">
-				<div class="SettingLabel">
-				   <span>Vibrate</span>
-				</div>
-			</div>
-			<div class="col-md-6 col-xs-6">
-				<div class="onoffswitch">
-				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-checked="{{vibrate}}" ng-click="toggleThis('vibrate')">
-				    <label class="onoffswitch-label" for="myonoffswitch">
-				        <span class="onoffswitch-inner">
-				            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-				            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-				        </span>
-				    </label>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-xs-6 text-center">
-				<div class="SettingLabel">
-				   <span>Sounds</span>
-				</div>
-			</div>
-			<div class="col-md-6 col-xs-6">
-				<div class="onoffswitch">
-				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="youronoffswitch" ng-checked="{{sounds}}" ng-click="toggleThis('sounds')">
-				    <label class="onoffswitch-label" for="youronoffswitch">
-				        <span class="onoffswitch-inner">
-				            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-				            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-				        </span>
-				    </label>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-xs-6 text-center">
-				<div class="SettingLabel">
-				   <span>Animations</span>
-				</div>
-			</div>
-			<div class="col-md-6 col-xs-6">
-				<div class="onoffswitch">
-				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="hisonoffswitch" ng-checked="{{animations}}" ng-click="toggleThis('animations')">
-				    <label class="onoffswitch-label" for="hisonoffswitch">
-				        <span class="onoffswitch-inner">
-				            <span class="onoffswitch-active"><span class="onoffswitch-switc		h">ON</span></span>
-				            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-				        </span>
-				    </label>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-xs-6 text-center">
-				<div class="SettingLabel">
-				   <span>Users</span>
-				</div>
-			</div>
-			<div class="col-md-6 col-xs-6">
-				<div class="onoffswitch">
-				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="gonsonoffswitch" ng-checked="onUser" ng-click="toggleThis('onUser')">
-				    <label class="onoffswitch-label" for="gonsonoffswitch">
-				        <span class="onoffswitch-inner">
-				            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
-				            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
-				        </span>
-				    </label>
-				</div>
-			</div>
-		</div>
-		<div class="row" ng-show="onUser">
-			<div class="col-md-6 col-xs-6 text-center">
-				<div>
-				   <input type="text" ng-model="uName" class="iuser form-control" required>
-				</div>
-			</div>
-			<div>
-				<span><input id="addUser" type="button" ng-click="addUser()" value="add" class="btn btn-success"></span>
-			</div>
-			<div ng-repeat="user in users track by $index">
-				<span class="users" title="Remove me" ng-click="removeUser($index)">{{user}}</span>
-			</div>
-		</div>
-	</div>
+        <div class="ntext container-fluid">
+                <div class="row">
+                        <div class="col-md-6 col-xs-6 text-center">
+                                <div class="SettingLabel">
+                                   <span>Vibrate</span>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-checked="vibrate" ng-click="toggleThis('vibrate')">
+                                    <label class="onoffswitch-label" for="myonoffswitch">
+                                        <span class="onoffswitch-inner">
+                                            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+                                            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+                                        </span>
+                                    </label>
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6 col-xs-6 text-center">
+                                <div class="SettingLabel">
+                                   <span>Sounds</span>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="youronoffswitch" ng-checked="sounds" ng-click="toggleThis('sounds')">
+                                    <label class="onoffswitch-label" for="youronoffswitch">
+                                        <span class="onoffswitch-inner">
+                                            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+                                            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+                                        </span>
+                                    </label>
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6 col-xs-6 text-center">
+                                <div class="SettingLabel">
+                                   <span>Animations</span>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="hisonoffswitch" ng-checked="animations" ng-click="toggleThis('animations')">
+                                    <label class="onoffswitch-label" for="hisonoffswitch">
+                                        <span class="onoffswitch-inner">
+                                            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+                                            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+                                        </span>
+                                    </label>
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6 col-xs-6 text-center">
+                                <div class="SettingLabel">
+                                   <span>Users</span>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="gonsonoffswitch" ng-checked="onUser" ng-click="toggleThis('onUser')">
+                                    <label class="onoffswitch-label" for="gonsonoffswitch">
+                                        <span class="onoffswitch-inner">
+                                            <span class="onoffswitch-active"><span class="onoffswitch-switch">ON</span></span>
+                                            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">OFF</span></span>
+                                        </span>
+                                    </label>
+                                </div>
+                        </div>
+                </div>
+                <div class="row" ng-show="onUser">
+                        <div class="col-md-6 col-xs-6 text-center">
+                                <div>
+                                   <input type="text" ng-model="uName" class="iuser form-control" ng-keyup="$event.keyCode == 13 ? addUser() : null"  required>
+                                </div>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                                <span class="glyphicon glyphicon-plus gadd" ng-click="addUser()"></span>
+                        </div>
+                        <div class="col-md-12 col-xs-12" ng-repeat="user in users track by $index">
+                                <span class="users" title="Remove me" >{{user}} <span class="glyphicon glyphicon-remove" ng-click="removeUser($index)"></span></span>
+                        </div>
+                </div>
+        </div>
 </div>
