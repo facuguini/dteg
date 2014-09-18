@@ -1,6 +1,6 @@
 
 app.controller('TegController', ['$scope', function($scope) {
-	new FastClick(document.body);
+	//new FastClick(document.body);
 	$scope.cantDe = 1;
 	$scope.cantAt = 1;
 	$scope.defensor = [];
